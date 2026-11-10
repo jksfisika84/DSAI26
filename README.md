@@ -1,11 +1,6 @@
-Decoding Size-Resolved Particulate Matter Dynamics under Tropical Riverine Conditions
-An Interpretable Machine Learning Analysis of Hourly PM1, PM2.5, and PM10 Variability in Pontianak, Indonesia
-Complete analysis notebook (main analysis + supplementary analyses)
+About this notebook:
 
-Joko Sampurno and Irfana Diah Faryuni, Department of Physics, Faculty of Mathematics and Natural Sciences, Universitas Tanjungpura, Pontianak, Indonesia
-
-About this notebook
-This single notebook reproduces, step by step, the entire analysis of the manuscript: from the raw hourly IQAir export to the final tables and figures. It combines what was previously two notebooks (the main analysis and the supplementary analysis) into one continuous workflow, so the data are uploaded and prepared once and every later step reuses the same objects. It is released together with the processed hourly series in support of the Data and Code Availability statement.
+This single notebook reproduces, step by step, the entire analysis of the manuscript: from the raw hourly IQAir export to the final tables and figures. It combines what was previously two notebooks (the main analysis and the supplementary analysis) into one continuous workflow, so the data are uploaded and prepared once, and every later step reuses the same objects. It is released alongside the processed hourly series to support the Data and Code Availability statement.
 
 Scientific goal. Explain why PM1, PM2.5, and PM10 respond differently to time of day, season, and local weather in Pontianak, by training one model per particle size and comparing their SHAP feature attributions, while testing how robust each conclusion is.
 
@@ -27,7 +22,7 @@ D. Interpretation	11	Out-of-fold SHAP, Table 3, bootstrap intervals, beeswarm fi
 E. Output	14	Results summary and export of manuscript-ready tables	
 How to run
 Execute the cells in order (Run All). Each section states its purpose, what it produces, and what to check before moving on.
-Section 2 opens a dialog to select the data file directly from your computer (Google Colab upload button, or a file-selection window when run locally). The column names are mapped automatically, and the time-zone convention is verified before any analysis proceeds.
-All figures (PNG), tables (CSV) and the selected hyper-parameters (JSON) are written to the outputs/ folder. In Colab the folder is also zipped for download at the end.
+Section 2 opens a dialog to select the data file directly from your computer (via the Google Colab upload button or a file selection window when run locally). The column names are mapped automatically, and the time-zone convention is verified before any analysis proceeds.
+All figures (PNG), tables (CSV), and the selected hyper-parameters (JSON) are written to the outputs/ folder. In Colab, the folder is also zipped for download at the end.
 Runtime
-Runtime is dominated by Section 9 (450 models) and Section 11 (SHAP attribution); together they take roughly 30 to 60 minutes on a Colab CPU runtime. For a first pass, set N_SEEDS = 3 in Section 1 and restore it to 10 for the values reported in the manuscript. If Section 11 is slow or the session runs out of memory, lower SHAP_MAX_ROWS.
+Runtime is dominated by Section 9 (450 models) and Section 11 (SHAP attribution); together, they take roughly 30 to 60 minutes on a Colab CPU. For a first pass, set N_SEEDS = 3 in Section 1 and restore it to 10 for the values reported in the manuscript. If Section 11 is slow or the session runs out of memory, lower SHAP_MAX_ROWS.
